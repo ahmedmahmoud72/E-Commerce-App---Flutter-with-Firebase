@@ -8,15 +8,17 @@ class DefaultTFF extends StatelessWidget {
   Function? onFieldSubmitted;
   bool isPassword = false;
   Function? suffixPressed;
+  FocusNode? focusNode;
 
   DefaultTFF(
       {Key? key,
       required this.labelText,
+      this.focusNode,
       required this.keyboardType,
       required this.controller,
       required this.isPassword,
       required this.validator,
-      required this.onFieldSubmitted})
+      this.onFieldSubmitted})
       : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class DefaultTFF extends StatelessWidget {
       obscureText: isPassword,
       controller: controller,
       keyboardType: keyboardType,
+      focusNode: focusNode,
       decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(2.0),
@@ -34,7 +37,9 @@ class DefaultTFF extends StatelessWidget {
         return validator(value);
       },
       onFieldSubmitted: (value) {
-        onFieldSubmitted!(value);
+        if (onFieldSubmitted != null) {
+          onFieldSubmitted!(value);
+        }
       },
     );
   }

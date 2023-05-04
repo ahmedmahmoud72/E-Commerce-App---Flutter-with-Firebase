@@ -13,19 +13,19 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 50.0,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(50),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).primaryColor,
+        width: double.infinity,
+        height: 50.0,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
+            onPressed: onTap,
+            child: Text(
+              text,
+            ),
           ),
-          onPressed: onTap,
-          child: Text(
-            text,
-          ),
-        ),
-      ));
+        ));
   }
 }
